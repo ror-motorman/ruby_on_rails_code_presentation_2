@@ -1,0 +1,27 @@
+- content_for :actions do
+  = link_to new_user_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-plus
+
+%table.js-table.table.table-bordered
+  %thead
+    %tr
+      %th= t('simple_form.labels.user.full_name')
+      %th= t('simple_form.labels.user.login')
+      %th= t('simple_form.labels.user.origin_password')
+      %th= t('simple_form.labels.user.position')
+      %th= t('fields.actions')
+  %tbody
+    - @users.find_each do |user|
+      %tr
+        %td= user.full_name
+        %td= user.login
+        %td= user.origin_password
+        %td= user.position
+        %td
+          = link_to t('submits.work_statistics'), user_work_statistics_path(user), class: 'btn btn-primary'
+          = link_to t('submits.edit'), edit_user_path(user), class: 'btn btn-info'
+          - if user.banned
+            = link_to t('submits.unblock'), user_ban_path(user), class: 'btn btn-success'
+          - else
+            = link_to t('submits.block'), user_ban_path(user), class: 'btn btn-warning'
+          = link_to t('submits.destroy'), user_path(user), method: :delete, class: 'btn btn-danger'

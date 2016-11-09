@@ -1,0 +1,18 @@
+- content_for :actions do
+  = link_to new_service_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-plus
+
+%table.js-table.table.table-bordered
+  %thead
+    %tr
+      %th= t('simple_form.labels.service.name')
+      %th= t('simple_form.labels.service.url')
+      %th= t('fields.actions')
+  %tbody
+    - @services.find_each do |service|
+      %tr
+        %td= service.name
+        %td= link_to service.url, service.url, target: '_blank'
+        %td
+          = link_to t('submits.edit'), edit_service_path(service), class: 'btn btn-info'
+          = link_to t('submits.destroy'), service_path(service), method: :delete, class: 'btn btn-danger'

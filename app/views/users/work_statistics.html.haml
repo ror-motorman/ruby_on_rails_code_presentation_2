@@ -1,0 +1,15 @@
+- content_for :title do
+  = t('titles.work_statistics', name: @user.full_name)
+
+%table.js-work-statistics-table.table.table-bordered
+  %thead
+    %tr
+      %th= t('work_statistic.project_name')
+      %th= t('work_statistic.start_at')
+      %th= t('work_statistic.end_at')
+  %tbody
+    - @user_work_statistics.find_each do |work_statistic|
+      %tr
+        %td= work_statistic.project.name
+        %td= work_statistic.start_at.to_formatted_s(:long_ordinal)
+        %td= work_statistic.end_at&.to_formatted_s(:long_ordinal)

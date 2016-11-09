@@ -1,0 +1,8 @@
+= simple_form_for @account, html: { autocomplete: 'off' } do |f|
+  = f.input :name
+  = f.input :url
+  = f.input :login
+  = f.input :password, as: :string
+  = f.input :service_id, as: :select, collection: Service.all
+  = f.input :note
+  = f.button :submit

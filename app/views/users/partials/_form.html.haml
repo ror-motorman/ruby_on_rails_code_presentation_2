@@ -1,0 +1,9 @@
+= simple_form_for @user, html: { autocomplete: 'off' } do |f|
+  = f.input :full_name
+  = f.input :login
+  = f.input :email
+  = f.input :origin_password, as: :string
+  = f.input :position
+  = f.input :role, as: :select, collection: User::ROLES, include_blank: false
+  = f.input :project_ids, collection: Project.all, input_html: { multiple: true }
+  = f.button :submit

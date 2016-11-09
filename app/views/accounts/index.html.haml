@@ -1,0 +1,28 @@
+- content_for :actions do
+  = link_to new_account_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-plus
+
+%table.js-table.table.table-bordered
+  %thead
+    %tr
+      %th= t('simple_form.labels.account.name')
+      %th= t('simple_form.labels.account.service')
+      %th= t('simple_form.labels.account.url')
+      %th= t('simple_form.labels.account.login')
+      %th= t('simple_form.labels.account.password')
+      %th= t('simple_form.labels.account.note')
+      %th= t('fields.status')
+      %th= t('fields.actions')
+  %tbody
+    - @accounts.find_each do |account|
+      %tr{ class: account.user_id ? 'unavailable' : '' }
+        %td= account.name
+        %td= link_to account.service.name, account.service.url, target: '_blank'
+        %td= link_to account.url, account.url, target: '_blank'
+        %td= account.login
+        %td= account.password
+        %td= account.note
+        %td= account_status(account)
+        %td
+          = link_to t('submits.edit'), edit_account_path(account), class: 'btn btn-info'
+          = link_to t('submits.destroy'), account_path(account), method: :delete, class: 'btn btn-danger'

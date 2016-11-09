@@ -1,0 +1,6 @@
+= simple_form_for @project do |f|
+  = f.input :name
+  = f.input :account_ids, collection: Account.all, input_html: { multiple: true }
+  = f.input :user_ids, collection: User.where.not(role: :admin),
+    label_method: :full_name, input_html: { multiple: true }
+  = f.button :submit

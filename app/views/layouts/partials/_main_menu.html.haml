@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default
+  #navbar
+    .navbar-header
+      = link_to 'MMG Accounting', root_path, class: 'navbar-brand'
+    %ul.nav.navbar-nav
+      - if can? :manage, User
+        %li{ class: active_class_for('users') }
+          = link_to t('titles.users'), users_path
+      - if can? :manage, Service
+        %li{ class: active_class_for('services') }
+          = link_to t('titles.services'), services_path
+      - if can? :manage, Account
+        %li{ class: active_class_for('accounts') }
+          = link_to t('titles.accounts'), accounts_path
+      - if can? :manage, Project
+        %li{ class: active_class_for('projects') }
+          = link_to t('titles.projects'), projects_path
+    .pull-right
+      %ul.nav.navbar-nav
+        %li.active
+          = link_to t('submits.log_out'), destroy_user_session_path, method: :delete

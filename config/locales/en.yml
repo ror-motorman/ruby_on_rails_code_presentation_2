@@ -1,0 +1,72 @@
+en:
+  titles:
+    sessions: Log in
+    users: Users
+    work_statistics: "%{name} work statistics"
+    services: Services
+    accounts: Accounts
+    projects: Projects
+
+  work_statistic:
+    project_name: Project name
+    user_name: User name
+    start_at: Start at
+    end_at: End at
+
+  simple_form:
+    labels:
+      user:
+        position: Position
+        full_name: Full name
+        login: Login
+        email: Email
+        origin_password: Password
+        role: Role
+        project_ids: Projects
+        remember_me: Remember me
+
+      service:
+        name: Name
+        url: Url
+        login: Login
+        login_button_identifier: Login button identifier (for jQuery)
+        login_field_identifier: Login field identifier (for jQuery)
+
+      account:
+        name: Name
+        url: Url
+        login: Login
+        password: Password
+        service: Service
+        note: Note
+
+      project:
+        name: Name
+        account_ids: Accounts
+        user_ids: Users
+
+  fields:
+    actions: Actions
+    status: Status
+
+  helpers:
+    status:
+      blocked: Blocked
+      free: Free
+      occupied: No available accounts
+      occupied_by: Occupied by %{name}
+
+  submits:
+    log_in: Log in
+    log_out: Log out
+    show: Show
+    edit: Edit
+    destroy: Delete
+    block: Block
+    unblock: Unblock
+    start_work: Start work
+    finish_work: Finish work
+    work_statistics: Work statistics
+
+  messages:
+   ban: Sorry, but you have been blocked for some reasons

@@ -1,0 +1,12 @@
+#log_in
+  .panel.panel-default.devise-bs
+    .panel-heading
+      %h4= t('submits.log_in')
+    .panel-body
+      = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+        = f.input :login
+        = f.input :password
+        - if devise_mapping.rememberable?
+          = f.input :remember_me, as: :boolean
+        .actions
+          = f.submit t('submits.log_in'), class: 'btn btn-primary'

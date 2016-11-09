@@ -1,0 +1,6 @@
+= simple_form_for @service, html: { autocomplete: 'off' } do |f|
+  = f.input :name
+  = f.input :url
+  = f.input :login_button_identifier
+  = f.input :login_field_identifier
+  = f.button :submit
